@@ -8,9 +8,7 @@
   (let [pulls (->> (s/split set #", ")
                    (map #(s/split % #" ")))]
     (every? (fn [[number color]]
-              (if (<= (Integer/parseInt number) (get valid-cubes color))
-                true
-                false))
+              (<= (Integer/parseInt number) (get valid-cubes color)))
             pulls)))
 
 (defn game-valid? [line]
